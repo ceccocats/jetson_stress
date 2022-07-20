@@ -20,7 +20,7 @@ vectorAdd(const float *A, const float *B, float *C, int numElements)
     }
 }
 
-int numElements = 200000;
+int numElements = 100000;
 size_t size = numElements * sizeof(float);
 float *h_A;
 float *h_B;
@@ -83,7 +83,7 @@ void cpuWork() {
         auto start = std::chrono::high_resolution_clock::now();
 
         #pragma omp parallel for
-        for(int i=0; i<numElements/100; i++) {
+        for(int i=0; i<numElements; i++) {
             C[i] = A[i];
             for(int j=0; j<numElements; j++)
                 C[i] += B[j];
