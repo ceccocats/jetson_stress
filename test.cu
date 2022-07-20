@@ -57,7 +57,7 @@ void gpuWork() {
         auto stop = std::chrono::high_resolution_clock::now();
 
         double t_sec = std::chrono::duration<double, std::milli>(stop - start).count()/1000.0;
-        of << start.time_since_epoch().count() << " " << t_sec <<"\n" << std::flush <<"\n";
+        of << start.time_since_epoch().count() << " " << t_sec <<"\n" << std::flush;
     }
 
     // Free host memory
@@ -94,7 +94,7 @@ void cpuWork() {
 
         auto stop = std::chrono::high_resolution_clock::now();
         double t_sec = std::chrono::duration<double, std::milli>(stop - start).count()/1000.0;
-        of << start.time_since_epoch().count() << " " << t_sec <<"\n" << std::flush <<"\n";
+        of << start.time_since_epoch().count() << " " << t_sec <<"\n" << std::flush;
     }
 
     std::cout<<"CPU finish\n";
