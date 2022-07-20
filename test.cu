@@ -60,11 +60,6 @@ void gpuWork() {
         of << start.time_since_epoch().count() << " " << t_sec <<"\n" << std::flush;
     }
 
-    // Free host memory
-    free(h_A);
-    free(h_B);
-    free(h_C);
-
     std::cout<<"GPU finish\n";
 }
 
@@ -116,6 +111,8 @@ main(void)
     float *h_A = (float *)malloc(size);
     float *h_B = (float *)malloc(size);
     float *h_C = (float *)malloc(size);
+
+    srand(42);
 
     // Initialize the host input vectors
     for (int i = 0; i < numElements; ++i)
