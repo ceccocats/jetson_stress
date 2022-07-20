@@ -129,14 +129,13 @@ void cpuWork()
 
         srand(42);
         uint64_t inCircle =0;
-        #pragma omp parallel for
+        #pragma omp parallel for reduction(+:inCircle)
         for (uint64_t i = 0; i < nsamples; i++) {
 
             float xValue = float(rand()) / RAND_MAX;
             float yValue = float(rand()) / RAND_MAX;
 
             if (xValue * xValue + yValue * yValue <= 1.0f) {
-                #pragma omp atomic
                 inCircle++;
             }
         }
